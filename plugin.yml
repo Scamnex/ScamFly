@@ -1,0 +1,12 @@
+name: ScamFly
+author: Scamnex
+version: "2.0.1"
+api: [3.0.0, 4.0.0]
+description: Fly
+main: Fly\Main
+
+commands:
+    fly:
+        description: "Dadurch kannst du fliegen."
+        usage: "/fly"
+        permission: fly.use
