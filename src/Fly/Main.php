@@ -1,5 +1,5 @@
 <?php
-namespace Sean_M\SafeFly;
+namespace Fly;
 
 use pocketmine\Server;
 use pocketmine\plugin\PluginBase;
