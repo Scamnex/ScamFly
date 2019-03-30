@@ -35,15 +35,20 @@ class Main extends PluginBase implements Listener {
         if(strtolower($command->getName()) == "fly") {
             if($sender instanceof Player) {
                 if($this->isPlayer($sender)) {
+                    $settings = new Config($this->getDataFolder() . "config.yml", Config::YAML); 
+                    $flyon = $settings->get("fly_on"); 
+                    $flyoff = $settings->get("fly_off");
+                    $pvpfly = $settings->get("pvp_fly");
+                    $pvpmessage = $settings->get("pvp_message");
                     $this->removePlayer($sender);
                     $sender->setAllowFlight(false);
-                    $sender->sendMessage($fly_off);
+                    $sender->sendMessage($flyoff);
                     return true;
                 }
                 else{
                     $this->addPlayer($sender);
                     $sender->setAllowFlight(true);
-                    $sender->sendMessage($fly_on);
+                    $sender->sendMessage($flyon);
                     return true;
                 }
             }
@@ -68,8 +73,8 @@ public function onEntityDamage(EntityDamageEvent $event) {
         if($event instanceof EntityDamageByEntityEvent) {
         $damager = $event->getDamager();
            if($damager instanceof Player && $this->isPlayer($damager)) {
-              $damager->sendTip($pvp_message);
-              $event->setCancelled($pvp_fly);
+              $damager->sendTip($pvpmessage);
+              $event->setCancelled($pvpfly);
            }
         }
      }
