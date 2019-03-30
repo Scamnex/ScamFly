@@ -1,4 +1,10 @@
 ---
+fly_on: "Test123"
 
+fly_off: "Aus"
+
+pvp_message: "Aua"
+
+pvp_fly: "true"
 
 ...
